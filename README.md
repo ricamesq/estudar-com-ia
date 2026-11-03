@@ -38,7 +38,7 @@ No Codex, peça o mesmo e troque CLAUDE.md por AGENTS.md.
 
 ## Imagem e vídeo
 
-Nano Banana Pro (imagem) e Veo (vídeo) estão no aplicativo Gemini com plano pago do Google AI, ou pela API do Gemini com a sua chave do Google AI Studio guardada num arquivo .env (nunca no chat nem no GitHub). A API cobra por imagem e por segundo de vídeo.
+Nano Banana Pro (imagem) e Veo (vídeo) se usam no aplicativo Gemini (gemini.google.com), com plano pago do Google AI. Gere lá, baixe o arquivo e salve na pasta; o Claude monta os slides com ele.
 
 ## Cuidado
 
