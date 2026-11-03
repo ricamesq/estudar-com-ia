@@ -20,6 +20,10 @@ No Codex, peça o mesmo e troque CLAUDE.md por AGENTS.md.
 | skills/vosviewer | mapas de coautoria e de palavras-chave no VOSviewer |
 | agents/tutor | tutor que pergunta o que você já sabe antes de explicar |
 | agents/conferidor-de-referencias | confere DOI e PMID e formata pela NBR 6023 |
+| agents/questoes | questões de múltipla escolha com comentário, a partir das notas |
+| agents/caso-ficticio | caso clínico fictício para treinar raciocínio |
+| agents/leitor-de-artigo | leitura crítica de artigo científico |
+| agents/plano-de-estudo | cronograma até a prova com revisão espaçada |
 | modelos/CLAUDE.md | regras da pasta de estudo |
 
 ## Ferramentas de terceiros (instalar pela origem)
@@ -28,6 +32,7 @@ No Codex, peça o mesmo e troque CLAUDE.md por AGENTS.md.
 - watch, resumo de vídeos: https://github.com/bradautomates/claude-video
 - anatomy, figuras explicativas em SVG: https://github.com/wheresryan22/anatomy
 - Zotero no Claude: https://github.com/54yyyu/zotero-mcp
+- NotebookLM no Claude (não oficial, uso pessoal): https://github.com/jacob-bd/notebooklm-mcp-cli
 
 ## Cuidado
 
