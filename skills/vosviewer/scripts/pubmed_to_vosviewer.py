@@ -39,7 +39,7 @@ from vosviewer_common import (  # noqa: E402
 )
 
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
-HEADERS = {"User-Agent": "Saci-Digital-VOSviewer/1.0 (research)"}
+HEADERS = {"User-Agent": "vosviewer-skill/1.0 (research)"}
 
 
 def _get(url: str) -> bytes:
@@ -154,7 +154,7 @@ def main() -> None:
         thesaurus=thesaurus,
     )
     out = save_json(obj, args.out)
-    print(f"✅ {out} — {summarize(obj)}")
+    print(f"✅ {out}: {summarize(obj)}")
 
 
 if __name__ == "__main__":

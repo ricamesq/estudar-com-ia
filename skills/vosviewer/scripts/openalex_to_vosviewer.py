@@ -35,7 +35,7 @@ from vosviewer_common import (  # noqa: E402
     summarize,
 )
 
-HEADERS = {"User-Agent": "Saci-Digital-VOSviewer/1.0 (mailto:saci@ceunsp.edu.br)"}
+HEADERS = {"User-Agent": "vosviewer-skill/1.0 (research)"}
 
 
 def fetch_openalex(query: str, max_results: int = 500) -> list[Document]:
@@ -137,7 +137,7 @@ def main() -> None:
             thesaurus=thesaurus,
         )
     out = save_json(obj, args.out)
-    print(f"✅ {out} — {summarize(obj)}")
+    print(f"✅ {out}: {summarize(obj)}")
 
 
 if __name__ == "__main__":

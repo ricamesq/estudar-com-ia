@@ -6,7 +6,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, WebFetch
 
 # VOSviewer Integration
 
-Purpose: turn any bibliographic dataset into a working VOSviewer network — either as a JSON file that loads directly in **VOSviewer Online** (no install), or as a .map + .net pair for the desktop version.
+Purpose: turn any bibliographic dataset into a working VOSviewer network: either as a JSON file that loads directly in **VOSviewer Online** (no install), or as a .map + .net pair for the desktop version.
 
 ## When to use this skill
 
@@ -28,10 +28,10 @@ VOSviewer works with **items** (nodes) connected by **links** (edges), organized
 
 Four analysis types:
 
-1. **Co-authorship** — items = authors/organizations/countries, link strength = number of co-authored papers
-2. **Co-citation** — items = cited references/authors/sources, link strength = number of documents citing both
-3. **Bibliographic coupling** — items = documents/authors/sources, link strength = number of shared cited references
-4. **Co-occurrence** — items = keywords/terms, link strength = number of documents where both appear
+1. **Co-authorship**: items = authors/organizations/countries, link strength = number of co-authored papers
+2. **Co-citation**: items = cited references/authors/sources, link strength = number of documents citing both
+3. **Bibliographic coupling**: items = documents/authors/sources, link strength = number of shared cited references
+4. **Co-occurrence**: items = keywords/terms, link strength = number of documents where both appear
 
 ## File formats VOSviewer accepts
 
@@ -41,7 +41,7 @@ Four analysis types:
 | **Map + Network** | `.map` + `.net` | Classic desktop format. Tab-separated. `.map` = items, `.net` = links. |
 | **Bibliographic DB** | Various | Raw exports from Web of Science, Scopus, Dimensions, Lens, PubMed (MEDLINE), Crossref JSON, RIS. VOSviewer parses these directly. |
 
-**Rule of thumb:** Produce the **JSON file** when possible — it's the most flexible, shareable, and works in VOSviewer Online (no desktop install required).
+**Rule of thumb:** Produce the **JSON file** when possible: it's the most flexible, shareable, and works in VOSviewer Online (no desktop install required).
 
 ## VOSviewer JSON schema (essentials)
 
@@ -92,12 +92,12 @@ Follow these steps when the user asks for a VOSviewer visualization:
 
 Ask (or infer) from:
 
-- **PubMed query** — use `mcp__7899fadf-...__search_articles` + `get_article_metadata` (this project has the PubMed MCP)
-- **Crossref** — `WebFetch` `https://api.crossref.org/works?query=...&rows=100` (free, no key)
-- **OpenAlex** — `WebFetch` `https://api.openalex.org/works?search=...&per_page=100`
-- **NotebookLM sources** — `mcp__notebooklm-mcp__source_get_content` per source
-- **Local file** — RIS, BibTeX, CSV, JSON in the project (use Read/Glob)
-- **Manual list** — user pastes DOIs or titles
+- **PubMed query**: use `mcp__7899fadf-...__search_articles` + `get_article_metadata` (this project has the PubMed MCP)
+- **Crossref**: `WebFetch` `https://api.crossref.org/works?query=...&rows=100` (free, no key)
+- **OpenAlex**: `WebFetch` `https://api.openalex.org/works?search=...&per_page=100`
+- **NotebookLM sources**: `mcp__notebooklm-mcp__source_get_content` per source
+- **Local file**: RIS, BibTeX, CSV, JSON in the project (use Read/Glob)
+- **Manual list**: user pastes DOIs or titles
 
 ### 2. Pick the analysis type
 
@@ -109,7 +109,7 @@ Ask (or infer) from:
 | "artigos similares" / "coupling" | bibliographic coupling | documents | shared references |
 | "mapa de temas" / "themes" | co-occurrence | terms | co-occurrence |
 
-Default when ambiguous: **keyword/term co-occurrence** — it's the most forgiving analysis and works with just titles + abstracts.
+Default when ambiguous: **keyword/term co-occurrence**: it's the most forgiving analysis and works with just titles + abstracts.
 
 ### 3. Build the network
 
@@ -117,9 +117,9 @@ Use the appropriate converter script in `scripts/` (see below). All scripts emit
 
 ### 4. Open the result
 
-Two options — present both to the user:
+Two options: present both to the user:
 
-**Option A — VOSviewer Online (zero install):**
+**Option A: VOSviewer Online (zero install):**
 
 1. Host the JSON file anywhere publicly reachable (GitHub raw, S3, Netlify, Cloudflare R2, a gist, etc.)
 2. Build the URL:
@@ -128,7 +128,7 @@ Two options — present both to the user:
    ```
 3. Share this URL with the user. Clicking it loads the network directly in the browser.
 
-**Option B — VOSviewer Desktop:**
+**Option B: VOSviewer Desktop:**
 
 1. Save the JSON file locally
 2. Instruct the user: open VOSviewer → File → Open → select the JSON file
@@ -147,29 +147,18 @@ After producing the first version, offer to:
 
 This skill ships with ready converter scripts in `scripts/`:
 
-- `scripts/pubmed_to_vosviewer.py` — PubMed query → keyword co-occurrence JSON
-- `scripts/crossref_to_vosviewer.py` — Crossref query → co-authorship JSON
-- `scripts/openalex_to_vosviewer.py` — OpenAlex query → concepts co-occurrence JSON
-- `scripts/ris_to_vosviewer.py` — RIS file → keyword co-occurrence JSON
-- `scripts/json_to_map_net.py` — Convert VOSviewer JSON → `.map` + `.net` for desktop
-- `scripts/open_in_vosviewer.py` — Build the VOSviewer Online URL (or open desktop)
+- `scripts/pubmed_to_vosviewer.py`: PubMed query → keyword co-occurrence JSON
+- `scripts/crossref_to_vosviewer.py`: Crossref query → co-authorship JSON
+- `scripts/openalex_to_vosviewer.py`: OpenAlex query → concepts co-occurrence JSON
+- `scripts/ris_to_vosviewer.py`: RIS file → keyword co-occurrence JSON
+- `scripts/json_to_map_net.py`: Convert VOSviewer JSON → `.map` + `.net` for desktop
+- `scripts/open_in_vosviewer.py`: Build the VOSviewer Online URL (or open desktop)
 
 All scripts are stdlib-only Python (no pip dependencies) unless noted.
 
 ## Thesaurus (Portuguese-friendly)
 
-`reference/thesaurus-pt.txt` contains common Brazilian-Portuguese synonym normalizations (e.g., `ia → inteligência artificial`, `chatgpt → modelos de linguagem`, `aps → atenção primária`). Load this when building term co-occurrence maps for Saci Digital or Portuguese health/education datasets.
-
-## Saci Digital integration
-
-For this project specifically, useful starting datasets:
-
-- `acervo-saci/data/processed/bibliografia_parsed.json` — pre-parsed bibliography
-- `acervo-saci/output/notebooklm/03_livros_referencias_links/livros_referencias.md` — book/reference list
-- NotebookLM notebook `32897aac` (Portal Saci Digital, 13 docs) — source titles via `mcp__notebooklm-mcp__notebook_get`
-- NotebookLM notebook `9f860ed7` (Saci Mentor, 5 pedagogical docs)
-
-Example end-to-end request: "Gera um mapa de termos dos textos do acervo Saci sobre cultura digital" → load `bibliografia_parsed.json`, filter by tag, extract titles+abstracts, build keyword co-occurrence via `scripts/ris_to_vosviewer.py` (after converting to RIS or directly via a small adapter), emit JSON, host on GitHub raw, return the `app.vosviewer.com?json=…` URL.
+`reference/thesaurus-pt.txt` contains common Brazilian-Portuguese synonym normalizations (e.g., `ia → inteligência artificial`, `chatgpt → modelos de linguagem`, `aps → atenção primária`). Load this when building term co-occurrence maps for Portuguese health/education datasets.
 
 ## Output location convention
 
@@ -187,13 +176,13 @@ vosviewer-out/
 
 When delivering a VOSviewer result to the user, ALWAYS include:
 
-1. **Dataset summary** — source, number of items, number of links, date range (if available)
-2. **File path(s)** — where the JSON/map/net files were saved
-3. **VOSviewer Online URL** — if the JSON was hosted somewhere reachable
-4. **Desktop instructions** — one line on how to open the JSON locally
-5. **Next actions** — what to tune next (filter, cluster count, thesaurus, etc.)
+1. **Dataset summary**: source, number of items, number of links, date range (if available)
+2. **File path(s)**: where the JSON/map/net files were saved
+3. **VOSviewer Online URL**: if the JSON was hosted somewhere reachable
+4. **Desktop instructions**: one line on how to open the JSON locally
+5. **Next actions**: what to tune next (filter, cluster count, thesaurus, etc.)
 
-Keep the response concise. Do not paste the full JSON in the chat — only the summary and the URL/path.
+Keep the response concise. Do not paste the full JSON in the chat: only the summary and the URL/path.
 
 ## Reference links
 

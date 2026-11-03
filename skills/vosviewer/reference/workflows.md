@@ -1,4 +1,4 @@
-# VOSviewer — Workflows comuns (Saci Digital)
+# VOSviewer: Workflows comuns
 
 Guia rápido dos fluxos mais frequentes. Cada workflow presume que você já tem a `vosviewer` skill carregada.
 
@@ -78,7 +78,7 @@ python ~/.claude/skills/vosviewer/scripts/ris_to_vosviewer.py \
 
 **Use quando:** há variações do mesmo termo ("ia" vs "inteligência artificial", "chatgpt" vs "modelos de linguagem").
 
-1. Crie/edite `vosviewer-out/thesaurus-saci.txt` (um sinônimo por linha, tab-separado):
+1. Crie/edite `vosviewer-out/thesaurus-pt.txt` (um sinônimo por linha, tab-separado):
 
 ```
 ia	inteligência artificial
@@ -94,7 +94,7 @@ educacao	educação
 ```bash
 python ~/.claude/skills/vosviewer/scripts/pubmed_to_vosviewer.py \
   "artificial intelligence primary care" \
-  --thesaurus vosviewer-out/thesaurus-saci.txt \
+  --thesaurus vosviewer-out/thesaurus-pt.txt \
   --min-count 5 \
   --out vosviewer-out/ai-aps.json
 ```
@@ -119,10 +119,10 @@ Gera `ai-aps.map` + `ai-aps.net`. No VOSviewer desktop: **File → Open → Map 
 
 Opções de hospedagem (todas grátis):
 
-- **GitHub raw** — commit no repo do projeto, use `https://raw.githubusercontent.com/user/repo/main/path.json`
-- **Cloudflare R2** — use o MCP Cloudflare desta sessão
-- **Netlify** — drag&drop de uma pasta com o JSON, publica em segundos
-- **Gist** — `gh gist create file.json -p` e use a URL raw
+- **GitHub raw**: commit no repo do projeto, use `https://raw.githubusercontent.com/user/repo/main/path.json`
+- **Cloudflare R2**: use o MCP Cloudflare desta sessão
+- **Netlify**: drag&drop de uma pasta com o JSON, publica em segundos
+- **Gist**: `gh gist create file.json -p` e use a URL raw
 
 Depois:
 
@@ -132,41 +132,6 @@ python ~/.claude/skills/vosviewer/scripts/open_in_vosviewer.py \
 ```
 
 Copia/abre `https://app.vosviewer.com/?json=<URL-encoded>`.
-
----
-
-## 8. Dataset do projeto Saci Digital
-
-Para gerar um mapa dos textos do acervo:
-
-1. Leia `acervo-saci/data/processed/bibliografia_parsed.json` com `Read`
-2. Normalize para `Document` (title, abstract, authors, year, keywords)
-3. Salve temporariamente como RIS ou passe direto via um script Python custom que importa `vosviewer_common` e chama `build_cooccurrence()`
-4. Salve o JSON em `vosviewer-out/saci-acervo-<tema>.json`
-
-Exemplo inline (em um script Python novo):
-
-```python
-import json, sys
-from pathlib import Path
-sys.path.insert(0, str(Path.home() / ".claude/skills/vosviewer/scripts"))
-from vosviewer_common import Document, build_cooccurrence, save_json, load_thesaurus
-
-raw = json.loads(Path("acervo-saci/data/processed/bibliografia_parsed.json").read_text(encoding="utf-8"))
-docs = [
-    Document(
-        title=r.get("titulo", ""),
-        abstract=r.get("resumo", "") or r.get("abstract", ""),
-        authors=r.get("autores") or [],
-        year=r.get("ano"),
-        keywords=r.get("palavras_chave") or r.get("keywords") or [],
-    )
-    for r in raw
-]
-thesaurus = load_thesaurus("vosviewer-out/thesaurus-saci.txt")
-obj = build_cooccurrence(docs, min_term_count=3, min_link_strength=2, thesaurus=thesaurus)
-save_json(obj, "vosviewer-out/saci-acervo.json")
-```
 
 ---
 

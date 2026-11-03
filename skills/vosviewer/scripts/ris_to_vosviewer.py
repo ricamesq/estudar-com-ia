@@ -161,7 +161,7 @@ def main() -> None:
             thesaurus=thesaurus,
         )
     out = save_json(obj, args.out)
-    print(f"✅ {out} — {summarize(obj)}")
+    print(f"✅ {out}: {summarize(obj)}")
 
 
 if __name__ == "__main__":

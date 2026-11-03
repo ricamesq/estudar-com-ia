@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-# ── Stopwords (PT + EN, short list — expand via thesaurus if needed) ────────
+# ── Stopwords (PT + EN, short list: expand via thesaurus if needed) ────────
 
 STOPWORDS_PT = {
     "a","o","as","os","um","uma","uns","umas","de","do","da","dos","das",

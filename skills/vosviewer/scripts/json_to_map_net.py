@@ -33,7 +33,7 @@ def main() -> None:
                 seen.add(k)
                 weight_keys.append(k)
 
-    # .map file — tab separated
+    # .map file: tab separated
     map_lines = ["id\tlabel\tcluster\tx\ty\t" + "\t".join(f"weight<{k}>" for k in weight_keys)]
     for it in items:
         row = [
@@ -47,7 +47,7 @@ def main() -> None:
         row.extend(str(w.get(k, 0)) for k in weight_keys)
         map_lines.append("\t".join(row))
 
-    # .net file — source\ttarget\tstrength
+    # .net file: source\ttarget\tstrength
     net_lines = []
     for lk in links:
         net_lines.append(f"{lk['source_id']}\t{lk['target_id']}\t{lk.get('strength', 1)}")

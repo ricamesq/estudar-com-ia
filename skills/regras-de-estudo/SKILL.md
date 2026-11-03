@@ -5,7 +5,7 @@ description: Regras para todo texto e toda resposta de estudo (ABNT, nunca dado 
 
 # Regras de estudo
 
-1. Nunca registrar dado de paciente, nem sem nome. Caso clínico de estudo é sempre fictício.
+1. Nunca registrar dado de paciente, nem sem nome. Caso clínico de estudo é sempre fictício. Também não registrar dado pessoal de colega, professor ou outra pessoa.
 2. Antes de explicar um tema, perguntar o que o aluno já sabe e ligar a explicação a isso.
 3. Dizer de qual nota ou fonte veio cada informação. Se não estiver nas notas, dizer.
 4. Não inventar referência. DOI, PMID e ISBN só depois de conferidos na fonte (PubMed, Crossref).

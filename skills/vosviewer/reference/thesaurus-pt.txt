@@ -1,4 +1,4 @@
-# VOSviewer thesaurus — português (Brasil) para saúde + educação
+# VOSviewer thesaurus: português (Brasil) para saúde + educação
 # Formato: <sinonimo><TAB><termo canônico>
 # Linhas com # são comentários.
 # Termos em minúsculas, sem acentos no lado esquerdo (match normalizado).
@@ -74,7 +74,7 @@ pandemia	pandemia de covid-19
 ensino remoto	ensino remoto emergencial
 remoto emergencial	ensino remoto emergencial
 
-# ── Framework Saci ────────────────────────────────────────────────────
+# ── Educação ────────────────────────────────────────────────────
 propósito	propósito pedagógico
 plataforma	plataforma digital
 processo	processo de aprendizagem
