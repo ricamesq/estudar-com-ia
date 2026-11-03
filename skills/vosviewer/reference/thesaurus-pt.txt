@@ -1,0 +1,81 @@
+# VOSviewer thesaurus — português (Brasil) para saúde + educação
+# Formato: <sinonimo><TAB><termo canônico>
+# Linhas com # são comentários.
+# Termos em minúsculas, sem acentos no lado esquerdo (match normalizado).
+# Lado direito = como vai aparecer no mapa.
+
+# ── Inteligência artificial ─────────────────────────────────────────────
+ia	inteligência artificial
+a.i.	inteligência artificial
+chatgpt	modelos de linguagem
+gpt	modelos de linguagem
+llm	modelos de linguagem
+llms	modelos de linguagem
+gemini	modelos de linguagem
+claude	modelos de linguagem
+ai	inteligência artificial
+machine learning	aprendizado de máquina
+deep learning	aprendizado profundo
+generative ai	ia generativa
+ia generativa	ia generativa
+
+# ── Saúde ──────────────────────────────────────────────────────────────
+aps	atenção primária à saúde
+atencao primaria	atenção primária à saúde
+atencao basica	atenção primária à saúde
+atenção básica	atenção primária à saúde
+ubs	unidade básica de saúde
+esf	estratégia saúde da família
+pacs	programa de agentes comunitários
+acs	agente comunitário de saúde
+nasf	núcleo de apoio à saúde da família
+sus	sistema único de saúde
+datasus	sistema único de saúde
+cnes	sistema único de saúde
+rnds	sistema único de saúde
+e-sus	sistema único de saúde
+pec	sistema único de saúde
+hiperdia	hipertensão diabetes
+previne brasil	atenção primária à saúde
+
+# ── Educação ───────────────────────────────────────────────────────────
+ead	educação a distância
+educacao a distancia	educação a distância
+educacao online	educação online
+educação à distância	educação a distância
+educacao superior	educação superior
+ensino superior	educação superior
+letramento digital	letramento digital
+literacia digital	letramento digital
+cultura digital	cultura digital
+tdic	tecnologias digitais
+tic	tecnologias digitais
+tics	tecnologias digitais
+bncc	base nacional comum curricular
+pnld	política nacional do livro didático
+moodle	ambiente virtual de aprendizagem
+ava	ambiente virtual de aprendizagem
+lms	ambiente virtual de aprendizagem
+
+# ── Pedagogia e metodologias ──────────────────────────────────────────
+pbl	aprendizagem baseada em problemas
+abp	aprendizagem baseada em problemas
+sala de aula invertida	flipped classroom
+gamificacao	gamificação
+metodologia ativa	metodologias ativas
+metodologias ativas	metodologias ativas
+avaliacao formativa	avaliação formativa
+
+# ── Pandemia e ensino remoto ──────────────────────────────────────────
+covid	covid-19
+covid19	covid-19
+sars-cov-2	covid-19
+pandemia	pandemia de covid-19
+ensino remoto	ensino remoto emergencial
+remoto emergencial	ensino remoto emergencial
+
+# ── Framework Saci ────────────────────────────────────────────────────
+propósito	propósito pedagógico
+plataforma	plataforma digital
+processo	processo de aprendizagem
+mediacao pedagogica	mediação pedagógica
